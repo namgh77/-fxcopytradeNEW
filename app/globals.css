@@ -3,53 +3,32 @@
 @tailwind utilities;
 
 :root {
-  /* Light Theme */
-  --background-start-rgb: 249, 250, 251; /* gray-50 */
-  --background-end-rgb: 255, 255, 255;
-  --text-primary: #111827; /* gray-900 */
-  --text-secondary: #6b7280; /* gray-500 */
-  --header-bg: #ffffff;
-  --header-border: #e5e7eb; /* gray-200 */
-  --footer-bg: #f3f4f6; /* gray-100 */
-  --footer-border: #e5e7eb; /* gray-200 */
-  --link-color: #2563eb; /* blue-600 */
-  --link-hover-color: #1d4ed8; /* blue-700 */
-  --card-bg: #ffffff;
-  --card-border: #e5e7eb;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    /* Dark Theme */
-    --background-start-rgb: 17, 17, 17; /* near black */
-    --background-end-rgb: 0, 0, 0;
-    --text-primary: #f9fafb; /* gray-50 */
-    --text-secondary: #9ca3af; /* gray-400 */
-    --header-bg: #111827; /* gray-900 */
-    --header-border: #374151; /* gray-700 */
-    --footer-bg: #030712; /* gray-950 */
-    --footer-border: #374151; /* gray-700 */
-    --link-color: #3b82f6; /* blue-500 */
-    --link-hover-color: #60a5fa; /* blue-400 */
-    --card-bg: #1f2937; /* gray-800 */
-    --card-border: #374151; /* gray-700 */
-  }
+  /* Dark Theme - Default */
+  --background-rgb: 17, 24, 39; /* gray-900 */
+  --text-primary: #f9fafb; /* gray-50 */
+  --text-secondary: #9ca3af; /* gray-400 */
+  --accent-color: #3b82f6; /* blue-500 */
+  --accent-hover-color: #60a5fa; /* blue-400 */
+  --card-bg: #1f2937; /* gray-800 */
+  --card-border: #374151; /* gray-700 */
+  --header-bg: rgba(17, 24, 39, 0.8);
+  --header-border: #374151; /* gray-700 */
 }
 
 body {
   color: var(--text-primary);
-  background: linear-gradient(to bottom, rgb(var(--background-start-rgb)), rgb(var(--background-end-rgb)));
-  font-family: var(--font-geist-sans), sans-serif;
+  background-color: rgb(var(--background-rgb));
+  font-family: var(--font-inter), sans-serif;
 }
 
 .header {
   background-color: var(--header-bg);
   border-bottom: 1px solid var(--header-border);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
 .footer {
-  background-color: var(--footer-bg);
-  border-top: 1px solid var(--footer-border);
   color: var(--text-secondary);
 }
 
