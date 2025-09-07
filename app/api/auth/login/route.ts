@@ -25,7 +25,7 @@ export async function POST(request: Request) {
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET as string, { expiresIn: '1h' });
 
     return NextResponse.json({ message: 'Logged in successfully', token }, { status: 200 });
-  } catch (error: any) {
+  } catch (/* eslint-disable-next-line @typescript-eslint/no-explicit-any */error: any) {
     return NextResponse.json({ message: 'Failed to login', error: error.message }, { status: 500 });
   }
 }

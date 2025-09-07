@@ -30,7 +30,7 @@ export default function RegisterPage() {
         const data = await res.json();
         setError(data.message || 'Registration failed');
       }
-    } catch (/* eslint-disable-next-line @typescript-eslint/no-explicit-any */error: any) {
+    } catch (error: any) { 
       setError('An unexpected error occurred');
     }
   };

@@ -14,7 +14,7 @@ export async function POST(request: Request) {
     const user = await User.create({ username, email, password: hashedPassword });
 
     return NextResponse.json({ message: 'User registered successfully', user }, { status: 201 });
-  } catch (error: any) {
+  } catch (/* eslint-disable-next-line @typescript-eslint/no-explicit-any */error: any) {
     if (error.code === 11000) {
       return NextResponse.json({ message: 'Username or email already exists' }, { status: 409 });
     }
