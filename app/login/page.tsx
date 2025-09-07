@@ -32,7 +32,7 @@ export default function LoginPage() {
         const data = await res.json();
         setError(data.message || 'Login failed');
       }
-    } catch (error: any) {
+    } catch (/* eslint-disable-next-line @typescript-eslint/no-explicit-any */error: any) {
       setError('An unexpected error occurred');
     }
   };
