@@ -34,14 +34,14 @@ const Header = () => {
         </h1>
         <nav className="hidden md:flex items-center gap-6">
           {navLinks.map(link => (
-            <Link key={link.href} href={link.href} className="font-semibold" style={{ '--hover-color': 'var(--link-hover-color)', color: 'var(--text-primary)' }} onMouseOver={(e) => e.currentTarget.style.color = 'var(--hover-color)'} onMouseOut={(e) => e.currentTarget.style.color = 'var(--text-primary)'}>
+            <Link key={link.href} href={link.href} className="font-semibold" style={{ '--hover-color': 'var(--link-hover-color)', color: 'var(--text-primary)' } as any} onMouseOver={(e) => e.currentTarget.style.color = 'var(--hover-color)'} onMouseOut={(e) => e.currentTarget.style.color = 'var(--text-primary)'}>
               {link.label}
             </Link>
           ))}
            <Link href="/dashboard" className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg transition-colors">
               Dashboard
             </Link>
-            <Link href="/login" className="font-semibold" style={{ '--hover-color': 'var(--link-hover-color)', color: 'var(--text-primary)' }} onMouseOver={(e) => e.currentTarget.style.color = 'var(--hover-color)'} onMouseOut={(e) => e.currentTarget.style.color = 'var(--text-primary)'}>
+            <Link href="/login" className="font-semibold" style={{ '--hover-color': 'var(--link-hover-color)', color: 'var(--text-primary)' } as any} onMouseOver={(e) => e.currentTarget.style.color = 'var(--hover-color)'} onMouseOut={(e) => e.currentTarget.style.color = 'var(--text-primary)'}>
               Login
             </Link>
         </nav>
