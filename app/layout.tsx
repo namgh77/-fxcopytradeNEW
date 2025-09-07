@@ -34,7 +34,7 @@ const Header = () => {
         </h1>
         <nav className="hidden md:flex items-center gap-6">
           {navLinks.map(link => (
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
             <Link key={link.href} href={link.href} className="font-semibold" style={{ '--hover-color': 'var(--link-hover-color)', color: 'var(--text-primary)' } as any} onMouseOver={(e) => e.currentTarget.style.color = 'var(--hover-color)'} onMouseOut={(e) => e.currentTarget.style.color = 'var(--text-primary)'}>
               {link.label}
             </Link>
@@ -42,7 +42,7 @@ const Header = () => {
            <Link href="/dashboard" className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg transition-colors">
               Dashboard
             </Link>
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
             <Link href="/login" className="font-semibold" style={{ '--hover-color': 'var(--link-hover-color)', color: 'var(--text-primary)' } as any} onMouseOver={(e) => e.currentTarget.style.color = 'var(--hover-color)'} onMouseOut={(e) => e.currentTarget.style.color = 'var(--text-primary)'}>
               Login
             </Link>
