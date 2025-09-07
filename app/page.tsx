@@ -11,6 +11,15 @@ const FeatureCard = ({ title }: { title: string }) => (
   </div>
 );
 
+// Bot Card Component
+const BotCard = ({ name, market, profit }: { name: string, market: string, profit: string }) => (
+  <div className="p-8 rounded-lg border border-gray-700 bg-gray-800/50 transform hover:-translate-y-2 transition-transform">
+    <h3 className="text-2xl font-bold mb-2 text-blue-400">{name}</h3>
+    <p className="text-lg font-semibold mb-4 text-gray-300">{market}</p>
+    <p className="text-gray-400">Estimated Monthly Profit:</p>
+    <p className="text-4xl font-bold text-white mt-2">{profit}</p>
+  </div>
+);
 
 export default function Home() {
   return (
@@ -73,6 +82,18 @@ export default function Home() {
             <FeatureCard title="Lot Size Control" />
             <FeatureCard title="Symbol Filtering" />
             <FeatureCard title="24/7 Support" />
+          </div>
+        </div>
+      </section>
+
+      {/* Our Trading Bots Section */}
+      <section className="py-24">
+        <div className="container mx-auto text-center">
+          <h2 className="text-4xl font-bold mb-12">Our Trading Bots</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <BotCard name="Forex AI Gold" market="Forex & Gold Market" profit="15% - 25%" />
+            <BotCard name="HFT AI" market="High-Frequency Trading" profit="30% - 50%" />
+            <BotCard name="Crypto Arbitrage AI" market="Crypto Arbitrage" profit="5% - 10%" />
           </div>
         </div>
       </section>
