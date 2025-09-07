@@ -1,10 +1,21 @@
 import React from 'react';
 import Link from 'next/link';
 
+// Feature Card Component
+const FeatureCard = ({ title }: { title: string }) => (
+  <div className="p-6 rounded-lg border border-gray-700 bg-gray-800/50 text-left">
+    {/* Placeholder for an icon */}
+    <div className="w-12 h-12 bg-blue-600/20 rounded-lg mb-4"></div>
+    <h3 className="text-xl font-semibold mb-2">{title}</h3>
+    <p className="text-gray-400">Advanced settings and full control over your trading parameters.</p>
+  </div>
+);
+
+
 export default function Home() {
   return (
     <>
-      {/* New Hero Section */}
+      {/* Hero Section */}
       <section className="text-center py-20">
         <h1 className="text-5xl md:text-7xl font-extrabold mb-4 tracking-tight">
           Best AI Trading Bots for Gold, Forex & Crypto
@@ -25,7 +36,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* New Key Metrics Bar */}
+      {/* Key Metrics Bar */}
       <section className="py-12">
         <div className="container mx-auto">
           <div className="flex justify-around text-center max-w-4xl mx-auto p-6 bg-gray-800/50 rounded-lg border border-gray-700">
@@ -45,7 +56,26 @@ export default function Home() {
         </div>
       </section>
 
-      {/* The rest of the sections will be added here in the next steps */}
+      {/* Comprehensive Trading Features Section */}
+      <section className="py-24">
+        <div className="container mx-auto text-center">
+          <h2 className="text-4xl font-bold mb-4">Comprehensive Trading Features</h2>
+          <p className="text-lg text-gray-400 max-w-2xl mx-auto mb-12">
+            Everything you need for automated, intelligent trading, right at your fingertips.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <FeatureCard title="SL/TP Management" />
+            <FeatureCard title="Trailing Stop" />
+            <FeatureCard title="Martingale Strategy" />
+            <FeatureCard title="Grid System" />
+            <FeatureCard title="News Filter" />
+            <FeatureCard title="Time Filter" />
+            <FeatureCard title="Lot Size Control" />
+            <FeatureCard title="Symbol Filtering" />
+            <FeatureCard title="24/7 Support" />
+          </div>
+        </div>
+      </section>
     </>
   );
 }
