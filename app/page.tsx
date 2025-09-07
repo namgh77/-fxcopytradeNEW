@@ -1,103 +1,82 @@
-import Image from "next/image";
+import React from 'react';
+import Link from 'next/link';
+
+// Helper component for feature cards
+const FeatureCard = ({ title, children }: { title: string, children: React.ReactNode }) => (
+  <div className="card h-full">
+    <h3 className="text-2xl font-bold mb-4" style={{ color: 'var(--link-color)'}}>{title}</h3>
+    <p className="text-lg" style={{ color: 'var(--text-secondary)'}}>{children}</p>
+  </div>
+);
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="animate-fade-in-down">
+      {/* Hero Section */}
+      <section className="text-center py-20">
+        <h1 className="text-5xl md:text-7xl font-extrabold mb-4">
+          Automate Your Trades with AI
+        </h1>
+        <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto" style={{ color: 'var(--text-secondary)'}}>
+          Leverage our advanced AI bots, BIT Forex and CAPY, to navigate the markets. Choose a plan that fits your style.
+        </p>
+        <div className="flex justify-center gap-4">
+          <Link href="/bots" className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full transition-transform transform hover:scale-105">
+            Explore The Bots
+          </Link>
+          <Link href="/affiliate" className="bg-gray-700 hover:bg-gray-600 text-white font-bold py-3 px-8 rounded-full transition-transform transform hover:scale-105">
+            Join Affiliate
+          </Link>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </section>
+
+      {/* Bots Introduction */}
+      <section className="my-24">
+        <h2 className="text-4xl font-bold text-center mb-12">Meet Our AI Trading Bots</h2>
+        <div className="grid md:grid-cols-2 gap-8">
+          <div className="card text-center">
+            <h3 className="text-3xl font-bold mb-3">BIT Forex Bot</h3>
+            <p className="mb-4" style={{ color: 'var(--text-secondary)'}}>
+              A sophisticated bot designed for the forex market, focusing on stable, long-term growth.
+            </p>
+            <img src="https://placehold.co/600x400/000000/FFFFFF/png?text=BIT+Forex+Chart" alt="BIT Forex Performance Chart" className="rounded-lg mx-auto" />
+          </div>
+          <div className="card text-center">
+            <h3 className="text-3xl font-bold mb-3">CAPY Bot</h3>
+            <p className="mb-4" style={{ color: 'var(--text-secondary)'}}>
+              An aggressive, high-frequency bot aiming for rapid gains in volatile markets.
+            </p>
+            <img src="https://placehold.co/600x400/000000/FFFFFF/png?text=CAPY+Bot+Chart" alt="CAPY Bot Performance Chart" className="rounded-lg mx-auto" />
+          </div>
+        </div>
+      </section>
+
+      {/* Main Features Highlight */}
+      <section className="my-24">
+        <h2 className="text-4xl font-bold text-center mb-12">Core Features at a Glance</h2>
+        <div className="grid md:grid-cols-3 gap-8">
+          <FeatureCard title="Automated Management">
+            Set your risk with automatic stop-loss and take-profit. Our bots handle the rest 24/7.
+          </FeatureCard>
+          <FeatureCard title="Full Control">
+            Adjust lot sizes, filter symbols, and set time restrictions to match your trading strategy.
+          </FeatureCard>
+          <FeatureCard title="Stay Notified">
+            Receive real-time trade alerts and updates directly to your Telegram.
+          </FeatureCard>
+        </div>
+      </section>
+
+      {/* Affiliate Program Intro */}
+      <section className="my-24 card text-center bg-blue-900/20 border-blue-500/30">
+          <h2 className="text-4xl font-bold mb-4">Become a Partner</h2>
+          <p className="text-xl max-w-3xl mx-auto mb-8" style={{ color: 'var(--text-secondary)'}}>
+            Earn significant commissions by referring users. We offer two lucrative partnership models: revenue sharing or subscription-based fees.
+          </p>
+          <Link href="/affiliate" className="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-full transition-transform transform hover:scale-105">
+            Learn More & Earn
+          </Link>
+      </section>
     </div>
   );
 }
