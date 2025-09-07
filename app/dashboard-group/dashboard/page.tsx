@@ -1,67 +1,53 @@
 import React from 'react';
+import Link from 'next/link';
 
-// Helper component for statistics cards
-const StatCard = ({ title, value, change }: { title: string, value: string, change?: string }) => (
+const DashboardCard = ({ title, value, unit, change }: { title: string; value: string; unit?: string; change?: string; }) => (
   <div className="p-6 rounded-lg border border-gray-700 bg-gray-800/50">
     <p className="text-sm text-gray-400">{title}</p>
-    <p className="text-3xl font-bold mt-1">{value}</p>
+    <p className="text-3xl font-bold mt-1">{value} {unit}</p>
     {change && <p className={`text-sm mt-1 ${change.startsWith('+') ? 'text-green-400' : 'text-red-400'}`}>{change}</p>}
   </div>
 );
 
-// Helper component for the Bot status cards
-const BotStatusCard = ({ name, status }: { name: string, status: 'Active' | 'Paused' }) => (
-    <div className="p-6 rounded-lg border border-gray-700 bg-gray-800/50 flex justify-between items-center">
-        <div>
-            <p className="font-semibold">{name}</p>
-            <p className={`text-sm ${status === 'Active' ? 'text-green-400' : 'text-yellow-400'}`}>{status}</p>
-        </div>
-        <button className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-1 px-3 rounded-md text-sm">
-            Settings
-        </button>
-    </div>
-);
-
-
 export default function DashboardPage() {
   return (
-    <div className="container mx-auto p-4 md:p-8">
+    <div className="flex-grow">
       <h1 className="text-4xl font-bold mb-8">Dashboard</h1>
 
-      {/* Stats Card Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-        <StatCard title="Current Balance" value="$12,450.78" change="+2.5%" />
-        <StatCard title="Total Profit" value="$2,450.78" />
-        <StatCard title="Win Rate" value="96.2%" />
-        <StatCard title="Today's P/L" value="-$54.12" change="-0.43%" />
+      {/* Add Account Button */}
+      <div className="mb-8">
+        <Link href="/dashboard-group/connect-account" className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg transition-colors inline-block">
+          Add Account
+        </Link>
       </div>
 
-      {/* Main Content Area */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        
-        {/* Left Column (Chart & Table) */}
-        <div className="lg:col-span-2 space-y-8">
-          {/* Chart Placeholder */}
-          <div className="p-6 rounded-lg border border-gray-700 bg-gray-800/50 h-96 flex items-center justify-center">
-            <p className="text-gray-500">Performance Chart Placeholder</p>
-          </div>
-          {/* Table Placeholder */}
-          <div className="p-6 rounded-lg border border-gray-700 bg-gray-800/50">
-            <h3 className="text-xl font-semibold mb-4">Open Trades</h3>
-            <div className="flex items-center justify-center h-48">
-                <p className="text-gray-500">Trade History Table Placeholder</p>
-            </div>
-          </div>
-        </div>
+      {/* Main Stats Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+        <DashboardCard title="MT4/MT5 Total Balance" value="$0.00" unit="" change="+0.00%" />
+        <DashboardCard title="Total Return" value="$0.00" unit="" />
+        <DashboardCard title="Active Accounts" value="1" unit="" />
+        <DashboardCard title="Subscription Status" value="active" unit="starter Plan" />
+      </div>
 
-        {/* Right Column (Bot Management) */}
-        <div className="lg:col-span-1 space-y-6">
-            <h2 className="text-2xl font-bold">Bot Management</h2>
-            <BotStatusCard name="Forex AI Gold" status="Active" />
-            <BotStatusCard name="HFT AI" status="Active" />
-            <BotStatusCard name="Crypto Arbitrage AI" status="Paused" />
-        </div>
+      {/* Upgrade My Plan */}
+      <div className="bg-gray-800/50 rounded-lg border border-gray-700 p-6 mb-8 text-center">
+        <h2 className="text-2xl font-bold mb-4">Upgrade My Plan</h2>
+        <p className="text-gray-400 mb-6">Get access to more trading bots and advanced features.</p>
+        <Link href="/pricing" className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg transition-colors inline-block">
+          Upgrade Now
+        </Link>
+      </div>
 
+      {/* Trading Education Videos */}
+      <div className="bg-gray-800/50 rounded-lg border border-gray-700 p-6 text-center">
+        <h2 className="text-2xl font-bold mb-4">Trading Education Videos</h2>
+        <p className="text-gray-400 mb-6">
+          Watch our educational videos to learn more about trading strategies and techniques.
+        </p>
+        {/* Placeholder for video player or link */}
+        <div className="aspect-w-16 aspect-h-9 bg-gray-700 rounded-lg flex items-center justify-center h-48">
+          <p className="text-gray-500">Video Player Placeholder</p>
+        </div>
       </div>
     </div>
   );
