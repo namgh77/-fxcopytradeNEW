@@ -87,13 +87,38 @@ export default function Home() {
       </section>
 
       {/* Our Trading Bots Section */}
-      <section className="py-24">
+      <section className="py-24 bg-gray-900">
         <div className="container mx-auto text-center">
           <h2 className="text-4xl font-bold mb-12">Our Trading Bots</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             <BotCard name="Forex AI Gold" market="Forex & Gold Market" profit="15% - 25%" />
             <BotCard name="HFT AI" market="High-Frequency Trading" profit="30% - 50%" />
             <BotCard name="Crypto Arbitrage AI" market="Crypto Arbitrage" profit="5% - 10%" />
+          </div>
+        </div>
+      </section>
+
+      {/* Affiliate Program Section */}
+      <section className="py-24">
+        <div className="container mx-auto text-center max-w-4xl">
+          <div className="p-8 rounded-lg border border-blue-500/50 bg-blue-900/20">
+            <h2 className="text-4xl font-bold mb-4">Join Our Affiliate Program</h2>
+            <p className="text-lg text-gray-400 max-w-2xl mx-auto mb-6">
+              Earn a 20% commission for every new user you refer. We provide all the tools and support you need to succeed.
+            </p>
+            <div className="flex justify-center items-center gap-8 my-8">
+                <div className="text-left">
+                    <p className="font-semibold text-xl">✓ Easy Sharing</p>
+                    <p className="text-gray-400">Share your unique link anywhere.</p>
+                </div>
+                <div className="text-left">
+                    <p className="font-semibold text-xl">✓ USDT BEP20 Payouts</p>
+                    <p className="text-gray-400">Fast and reliable crypto payments.</p>
+                </div>
+            </div>
+            <Link href="#affiliate" className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg transition-transform transform hover:scale-105">
+              Join Affiliate Program
+            </Link>
           </div>
         </div>
       </section>
