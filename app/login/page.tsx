@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState }s from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
@@ -32,7 +32,9 @@ export default function LoginPage() {
         const data = await res.json();
         setError(data.message || 'Login failed');
       }
-    } catch (error: any) { // This is the line to fix
+    } 
+    /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+    catch (error: any) {
       setError('An unexpected error occurred');
     }
   };
