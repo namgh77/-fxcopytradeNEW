@@ -32,7 +32,7 @@ export default function LoginPage() {
         const data = await res.json();
         setError(data.message || 'Login failed');
       }
-    } catch (err) {
+    } catch (error: any) {
       setError('An unexpected error occurred');
     }
   };
