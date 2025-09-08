@@ -1,4 +1,6 @@
-import React from 'react';
+'use client';
+
+import React, { useState } from 'react';
 import Link from 'next/link';
 
 // Feature Card Component
@@ -20,6 +22,36 @@ const BotCard = ({ name, market, profit }: { name: string, market: string, profi
     <p className="text-4xl font-bold text-white mt-2">{profit}</p>
   </div>
 );
+
+// FAQ Item Component
+const FAQItem = ({ question, answer }: { question: string; answer: string; }) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <div className="border border-gray-700 rounded-lg mb-4 bg-gray-800/50">
+      <button
+        className="flex justify-between items-center w-full p-5 text-left font-semibold text-lg focus:outline-none"
+        onClick={() => setIsOpen(!isOpen)}
+      >
+        {question}
+        <svg
+          className={`w-6 h-6 transition-transform transform ${isOpen ? 'rotate-180' : ''}`}
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+        </svg>
+      </button>
+      {isOpen && (
+        <div className="p-5 border-t border-gray-700 text-gray-400">
+          {answer}
+        </div>
+      )}
+    </div>
+  );
+};
 
 export default function Home() {
   return (
@@ -119,6 +151,31 @@ export default function Home() {
             <Link href="#affiliate" className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg transition-transform transform hover:scale-105">
               Join Affiliate Program
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-24">
+        <div className="container mx-auto text-center max-w-3xl">
+          <h2 className="text-4xl font-bold mb-12">Frequently Asked Questions</h2>
+          <div className="space-y-4">
+            <FAQItem
+              question="What is MevTrading?"
+              answer="MevTrading is a platform offering advanced AI trading bots for various financial markets, designed to automate and optimize your trading strategies."
+            />
+            <FAQItem
+              question="How do the AI bots work?"
+              answer="Our AI bots utilize sophisticated algorithms and machine learning to analyze market data, identify trading opportunities, and execute trades automatically based on predefined strategies."
+            />
+            <FAQItem
+              question="Is my capital safe?"
+              answer="We prioritize the security of your capital. Our bots operate with strict risk management protocols, and we recommend using reputable brokers. However, all trading involves risk."
+            />
+            <FAQItem
+              question="How can I get started?"
+              answer="You can start by choosing a trading bot plan that suits your needs, connecting your trading account, and configuring your bot settings. Our support team is here to assist you."
+            />
           </div>
         </div>
       </section>
